@@ -1,0 +1,8 @@
+<div class="bg-dark">
+    <div class="input-group mb-3">
+        <input type="text" class="dark form-control" placeholder="Enter Command" aria-label="Enter Command" aria-describedby="command" id="command" name="command" #command (keyup.enter)="sendCommand(command.value)">
+        <span class="input-group-text" id="command" (click)="sendCommand(command.value)">Send</span>
+    </div>
+
+    <app-command-info-display [commandInfo]="commandInfo"></app-command-info-display>
+</div>
