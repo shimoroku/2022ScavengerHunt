@@ -1,7 +1,21 @@
-<div class="card" style="width: 18rem;" *ngIf="CommandInfo !== undefined">
-    <div class="card-body">
-        <h5 class="card-title">{{CommandInfo.Key}}</h5>
-        <p>{{CommandInfo.Name}}</p>
-        <p>{{CommandInfo.Value}}</p>
-    </div>
+<div class="card" style="" *ngIf="CommandInfo !== undefined">
+    <ng-container [ngSwitch]="CommandInfo.SolutionType">
+        <div *ngSwitchCase="'0'" class="card-body">
+            <h5 class="card-title">{{CommandInfo.Key}} - text</h5>
+            <p>{{CommandInfo.Name}}</p>
+            <p>{{CommandInfo.Value}}</p>
+        </div>
+        <div *ngSwitchCase="'1'" class="card-body">
+            <h5 class="card-title">{{CommandInfo.Key}} - video</h5>
+            <p>{{CommandInfo.Name}}</p>
+            <p>{{CommandInfo.Value}}</p>
+            <iframe width="560" height="315" [src]="CommandInfo.Clue | safe: 'resourceUrl'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div *ngSwitchCase="'2'" class="card-body">
+            <h5 class="card-title">{{CommandInfo.Key}} - image</h5>
+            <p>{{CommandInfo.Name}}</p>
+            <p>{{CommandInfo.Value}}</p>
+            <img src="{{CommandInfo.Clue}}" />
+        </div>
+    </ng-container>
 </div>

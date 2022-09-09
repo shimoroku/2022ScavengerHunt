@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
 import { CommandService } from './services/commandService';
 import { CommandInfoDisplayComponent } from './components/command-info-display/command-info-display.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    CommandInfoDisplayComponent
+    CommandInfoDisplayComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
